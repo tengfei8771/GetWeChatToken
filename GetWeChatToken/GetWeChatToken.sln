@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetWeChatToken", "GetWeChat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeChatPlatform", "..\WeChatPlatform\WeChatPlatform.csproj", "{37CC5562-8244-494D-A9F2-7D2FEF9D4536}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenHelper", "..\TokenHelper\TokenHelper.csproj", "{7C3D52EF-7B46-4343-BA2B-EBA81AF4FBCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TokenHelper", "..\TokenHelper\TokenHelper.csproj", "{7C3D52EF-7B46-4343-BA2B-EBA81AF4FBCE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeChatToken", "..\WeChatToken\WeChatToken.csproj", "{D6F04373-056B-44D2-BF05-B1D6AE269796}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{7C3D52EF-7B46-4343-BA2B-EBA81AF4FBCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C3D52EF-7B46-4343-BA2B-EBA81AF4FBCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C3D52EF-7B46-4343-BA2B-EBA81AF4FBCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6F04373-056B-44D2-BF05-B1D6AE269796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F04373-056B-44D2-BF05-B1D6AE269796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F04373-056B-44D2-BF05-B1D6AE269796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F04373-056B-44D2-BF05-B1D6AE269796}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
