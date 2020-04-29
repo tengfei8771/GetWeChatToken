@@ -23,8 +23,8 @@ namespace WeChatToken
         {
 
             HttpRequest request = httpContext.Request;
-            if (request.Method.ToLower().Equals("get"))
-            {
+            //if (request.Method.ToLower().Equals("get"))
+            //{
                 
                 if(!request.Headers.TryGetValue("X-Token", out var apiKeyHeaderValues))
                 {
@@ -54,7 +54,7 @@ namespace WeChatToken
                         return Task.FromResult(0);
                     }
                 }               
-            }
+            //}
             return _next(httpContext);
         }
     }

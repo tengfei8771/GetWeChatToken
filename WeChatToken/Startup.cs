@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WeChatToken.Common.Http;
 
 namespace WeChatToken
 {
@@ -24,7 +25,10 @@ namespace WeChatToken
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(opt => {
+                opt.Filters.Add(typeof(APIExceptionFilterAttribute)); //添加全局异常捕获
+                opt.Filters.Add(typeof(APIResultFilterAttribute)); //添加全局接口统一返回格式
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,7 +38,8 @@ namespace WeChatToken
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseMiddleware();
+            //暂时注释掉过滤条件
+            //app.UseMiddleware();
             app.UseHttpsRedirection();
 
             app.UseAuthentication();

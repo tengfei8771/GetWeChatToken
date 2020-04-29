@@ -9,6 +9,16 @@ namespace WeChatPlatform.API
 {
     public class Token
     {
+        public static string GetValidToken()
+        {
+            if (UserConfig.tokenInfo == null || !UserConfig.tokenInfo.IsValid ||
+                DateTime.Now.AddMinutes(2.5) > UserConfig.tokenInfo.expireTime)
+            {
+                Token.GetToken();
+            }
+            return UserConfig.tokenInfo.Token;
+        }
+
         /// <summary>
         /// 获取Token方法
         /// </summary>

@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using WeChatPlatform.API;
 using WeChatPlatform.Config;
 
 namespace WeChatPlatform
@@ -22,19 +23,19 @@ namespace WeChatPlatform
         /// <returns>拼接完成后的URL</returns>
         public static string CreateUrl(string partUrl)
         {
-            if (UserConfig.tokenInfo.Token == null || UserConfig.tokenInfo.Token == "")
-            {
-                throw new Exception("未获取有效Token");
-            }
+            //if (UserConfig.tokenInfo.Token == null || UserConfig.tokenInfo.Token == "")
+            //{
+            //    throw new Exception("未获取有效Token");
+            //}
             //else if (!(Until.GetTimeSpan()<UserConfig.expireTime))
             //{
             //    Token.GetToken();
             //    return "https://" + UrlConfig.BaseApiURL + partUrl + UserConfig.token;
             //}
-            else
-            {
-                return "https://" + UrlConfig.BaseApiURL + partUrl + UserConfig.tokenInfo.Token;
-            }
+            //else
+            //{
+                return "https://" + UrlConfig.BaseApiURL + partUrl + Token.GetValidToken();
+            //}
         }
 
 

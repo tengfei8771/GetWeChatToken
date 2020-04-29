@@ -126,6 +126,7 @@ namespace WeChatPlatform.API
             Dictionary<string, object> dic = new Dictionary<string, object>();
             dic["touser"] = openid;
             dic["template_id"] = templateid;
+            dic["topcolor"] = "#D5D5D5";
             if (appurl != null)
             {
                 dic["url"] = appurl;
