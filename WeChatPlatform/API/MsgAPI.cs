@@ -120,7 +120,7 @@ namespace WeChatPlatform.API
         /// <param name="pagepath">所需跳转到小程序的具体页面路径</param>
         /// <param name="color">模板内容字体颜色，不填默认为黑色</param>
         /// <returns></returns>
-        public string SendTemplateMsg(string openid, string templateid, object data,string appid,string appurl = null, object miniprogram= null,string pagepath=null,string color = null)
+        public string SendTemplateMsg(string openid, string templateid, object data,string appid = null,string appurl = null,string pagepath=null,string color = null)
         {
             string url= Until.CreateUrl(UrlConfig.SendTemplateMsg);
             Dictionary<string, object> dic = new Dictionary<string, object>();
@@ -131,9 +131,9 @@ namespace WeChatPlatform.API
             {
                 dic["url"] = appurl;
             }
-            if (miniprogram != null)
+            if (!string.IsNullOrEmpty(appid))
             {
-                dic["miniprogram"] = miniprogram;
+                dic["miniprogram"] = new { appid, pagepath };
             }
             dic["appid"] = appid;
             if (pagepath != null)
