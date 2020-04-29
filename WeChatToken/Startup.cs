@@ -38,8 +38,7 @@ namespace WeChatToken
             {
                 app.UseDeveloperExceptionPage();
             }
-            //暂时注释掉过滤条件
-            //app.UseMiddleware();
+            app.UseMiddleware();
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
