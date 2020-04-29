@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using UIDP.UTILITY.JWTHelper;
 using WeChatPlatform.API;
 using WeChatPlatform.Config;
+using WeChatToken.Common.Http;
 
 namespace WeChatToken
 {
@@ -30,8 +31,8 @@ namespace WeChatToken
                 {
                     httpContext.Response.ContentType = "application/json";
                     httpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                    var payload = JsonConvert.SerializeObject(new { code = "401", Message = "很抱歉,您无权访问本接口 "});
-                    httpContext.Response.WriteAsync(payload);
+                var payload = JsonConvert.SerializeObject(new ResultBase(ApiResultCodes.INTERFACE_FORBIDDEN));
+                httpContext.Response.WriteAsync(payload);
                     return Task.FromResult(0);
                 }
                 else
@@ -49,7 +50,7 @@ namespace WeChatToken
                     {
                         httpContext.Response.ContentType = "application/json";
                         httpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                        var payload = JsonConvert.SerializeObject(new { code = "401", Message = "很抱歉,您访问本接口的Token无效，无权访问本接口" });
+                    var payload = JsonConvert.SerializeObject(new ResultBase(ApiResultCodes.INTERFACE_FORBIDDEN));
                         httpContext.Response.WriteAsync(payload);
                         return Task.FromResult(0);
                     }
