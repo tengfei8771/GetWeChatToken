@@ -35,6 +35,27 @@ namespace WeChatToken.Controllers
         }
 
         [HttpPost]
+        [Route("sends")]
+        public void SendMsgs([FromBody] List<FormParam.ReuqestForm> froms)
+        {
+            try
+            {
+                froms.ForEach(from =>
+                {
+                    Task.Run(() =>
+                    {
+                        return msg.SendTemplateMsg(from.openId, from.templateId,
+                        from.getData(), from.appId, from.appurl, from.pagepath, from.color);
+                    });
+                });
+            }
+            catch (Exception ex)
+            {
+                throw new ApiResultException(ex.Message, ex);
+            }
+        }
+
+        [HttpPost]
         [Route("pay")]
         public object PayMsg([FromBody] FormParam.ReuqestForm request) {
             try
@@ -62,6 +83,20 @@ namespace WeChatToken.Controllers
             }
         }
 
+
+        [HttpGet]
+        [Route("text")]
+        public object Text()
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new ApiResultException(ex.Message, ex);
+            }
+        }
 
     }
 }
