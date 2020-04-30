@@ -15,6 +15,7 @@ namespace WeChatToken.Common.Model
             public string color { get; set; } = "#173177";
             public string templateId { get; set; }
             public string appurl { get; set; }
+            public string appId { get; set; }
             public string pagepath { get; set; }
 
             /// <summary>

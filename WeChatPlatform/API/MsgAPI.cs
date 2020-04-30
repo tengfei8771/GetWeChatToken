@@ -124,8 +124,8 @@ namespace WeChatPlatform.API
         {
             string url= Until.CreateUrl(UrlConfig.SendTemplateMsg);
             Dictionary<string, object> dic = new Dictionary<string, object>();
-            dic["touser"] = openid;
-            dic["template_id"] = templateid;
+            dic["touser"] = openid.Trim();
+            dic["template_id"] = templateid.Trim();
             dic["topcolor"] = "#D5D5D5";
             if (appurl != null)
             {
@@ -135,7 +135,7 @@ namespace WeChatPlatform.API
             {
                 dic["miniprogram"] = new { appid, pagepath };
             }
-            dic["appid"] = appid;
+            //dic["appid"] = appid;
             if (pagepath != null)
             {
                 dic["pagepath"] = pagepath;

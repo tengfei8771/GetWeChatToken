@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using WeChatPlatform.API;
 using WeChatToken.Common;
 using WeChatToken.Common.Extends;
@@ -25,7 +26,7 @@ namespace WeChatToken.Controllers
             try
             {
                 return msg.SendTemplateMsg(from.openId, from.templateId,
-                        from.getData(), AppId, from.appurl, from.pagepath, from.color);
+                        from.getData(), from.appId, from.appurl, from.pagepath, from.color);
             }
             catch (Exception ex)
             {
