@@ -124,8 +124,8 @@ namespace WeChatPlatform.API
         {
             string url= Until.CreateUrl(UrlConfig.SendTemplateMsg);
             Dictionary<string, object> dic = new Dictionary<string, object>();
-            dic["touser"] = openid.Trim();
-            dic["template_id"] = templateid.Trim();
+            dic["touser"] = openid?.Trim();
+            dic["template_id"] = templateid?.Trim();
             dic["topcolor"] = "#D5D5D5";
             if (appurl != null)
             {
@@ -150,7 +150,7 @@ namespace WeChatPlatform.API
             JObject obj = JObject.Parse(response);
             if ((int)obj["errcode"] != 0)
             {
-                throw new Exception(errMsg.GetErrMsg((int)obj["errcode"]));
+                throw new Exception(response);
             }
             else
             {

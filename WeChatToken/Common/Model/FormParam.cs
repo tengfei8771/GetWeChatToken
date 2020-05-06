@@ -27,5 +27,13 @@ namespace WeChatToken.Common.Model
                 return data.ToWxMsgTemplate(color);
             }
         }
+
+        public class SMSFrom
+        {
+            public string to { get; set; }
+            public string[] datas { get; set; }
+            public string templateId { get; set; }
+            public string appId { get; set; } //非必填。
+        }
     }
 }
