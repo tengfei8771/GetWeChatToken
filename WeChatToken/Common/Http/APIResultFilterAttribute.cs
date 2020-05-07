@@ -21,7 +21,7 @@ namespace WeChatToken.Common.Http
         {
             var objectResult = context.Result as ObjectResult;
             var ResultBase = new ResultBase(ApiResultCodes.SCCUESS, "运行结果：",
-                result: objectResult.Value);
+                objectResult.Value);
             context.Result = new OkObjectResult(ResultBase);
         }
     }

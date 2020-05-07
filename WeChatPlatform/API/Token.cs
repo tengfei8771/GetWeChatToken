@@ -12,7 +12,7 @@ namespace WeChatPlatform.API
         public static string GetValidToken()
         {
             if (UserConfig.tokenInfo == null || !UserConfig.tokenInfo.IsValid ||
-                DateTime.Now.AddMinutes(2.5) > UserConfig.tokenInfo.expireTime)
+                DateTime.Now.AddMinutes(1.8) > UserConfig.tokenInfo.expireTime)
             {
                 Token.GetToken();
             }
@@ -30,13 +30,18 @@ namespace WeChatPlatform.API
             RequestHelper request = new RequestHelper();
             string response = request.GetResponseString(request.CreateGetHttpResponse(url));
             JObject obj = JObject.Parse(response);
+            //UserConfig.token = obj["access_token"].ToString();
+            //UserConfig.expireTime = Until.GetTimeSpan(119);
             if (response.Contains("errcode"))
             {
                 string errmsg = obj["errmsg"].ToString();
+                if(UserConfig.tokenInfo == null)
+                {
+                    UserConfig.tokenInfo = new TokenInfo();
+                }
                 UserConfig.tokenInfo.IsValid = false;
+                return response;
             }
-            //UserConfig.token = obj["access_token"].ToString();
-            //UserConfig.expireTime = Until.GetTimeSpan(119);
             UserConfig.tokenInfo = new TokenInfo()
             {
                 Token = obj["access_token"].ToString(),
