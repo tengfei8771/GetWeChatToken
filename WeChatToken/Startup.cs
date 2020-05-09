@@ -38,7 +38,7 @@ namespace WeChatToken
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseMiddleware();
+            //app.UseMiddleware();
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
