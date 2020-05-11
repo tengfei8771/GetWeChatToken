@@ -37,6 +37,9 @@ namespace WeChatToken.Common.Http
         [Description("系统业务出现问题")]
         BUSINESS_ERROR = 30001,// 系统业务出现问题
 
+        [Description("系统业务已被禁用")]
+        BUSINESS_STOP = 30002,// 系统业务出现问题
+
         // 系统错误
         [Description("系统内部错误")]
         SYSTEM_INNER_ERROR = 40001, // 系统内部错误

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Data.MSSQL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,8 @@ namespace WeChatToken
                 opt.Filters.Add(typeof(APIExceptionFilterAttribute)); //添加全局异常捕获
                 opt.Filters.Add(typeof(APIResultFilterAttribute)); //添加全局接口统一返回格式
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            //这里就是注入服务
+            services.AddTransient<IDataConfig, DataConfig>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

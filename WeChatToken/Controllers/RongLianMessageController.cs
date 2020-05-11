@@ -11,12 +11,12 @@ using WeChatToken.Controllers.Base;
 
 namespace WeChatToken.Controllers
 {
+    [WeChatToken.Common.Filter.SMSFilter]
     [Route("api/rlmsg")]
-    [ApiController]
     public class RongLianMessageController : ApiControllerBase
     {
         [Route("send")]
-        //[HttpPost]
+        [HttpPost]
         public string SendMsg([FromBody] FormParam.SMSFrom from)
         {
             return RLCloudHelper.SendSMS(from.to,from.datas,from.appId,from.templateId);
@@ -28,6 +28,11 @@ namespace WeChatToken.Controllers
         //{
         //    return RLCloudHelper.SendTest();
         //}
+        [Route("test")]
+        public string SendTest()
+        {
+            return "YES";
+        }
         #endregion
     }
 }

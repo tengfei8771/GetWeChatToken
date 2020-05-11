@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\HouseManage\Git\House\HouseManage\Data.MSSQL\Data.MSSQL.csproj" />
     <ProjectReference Include="..\TokenHelper\TokenHelper.csproj" />
     <ProjectReference Include="..\WeChatPlatform\WeChatPlatform.csproj" />
   </ItemGroup>

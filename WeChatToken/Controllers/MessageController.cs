@@ -8,11 +8,13 @@ using Newtonsoft.Json;
 using WeChatPlatform.API;
 using WeChatToken.Common;
 using WeChatToken.Common.Extends;
+using WeChatToken.Common.Filter;
 using WeChatToken.Common.Model;
 using WeChatToken.Controllers.Base;
 
 namespace WeChatToken.Controllers
 {
+    [WXMSGFilter]
     [Route("api/msg")]
     public class MessageController : ApiControllerBase
     {

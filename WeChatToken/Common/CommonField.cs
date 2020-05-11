@@ -45,7 +45,8 @@ namespace WeChatToken.Common
         #endregion
 
 
-
+        public static string WX_SMS_STATUS = "SMS_STATUS";
+        public static string WX_MSG_STATUS = "WX_MSG_STATUS";
         public static string GetString(string key) => ConfigHelper.GetAppSettings(key);
 
     }
